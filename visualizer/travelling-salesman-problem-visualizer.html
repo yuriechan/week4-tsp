@@ -44,7 +44,7 @@
   <template>
     <div nav>
       <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/272px-Google_2015_logo.svg.png" height="50"></img>
+        <img src="https://www-mercari-jp.akamaized.net/assets/img/common/jp/logo_horizontal.png?304547132" height="100"></img>
         <h4>Travelling Salesman Problem Challenges</h4>
       </div>
       <div id="control">
@@ -67,15 +67,16 @@
         <h4>Solutions</h4>
         <paper-radio-group id="solvers" selected="yours">
           <paper-radio-button name="yours">yours</paper-radio-button>
-          <paper-radio-button name="random">hayato-random</paper-radio-button>
-          <paper-radio-button name="greedy">hayato-greedy</paper-radio-button>
-          <paper-radio-button name="sa">hayato-sa</paper-radio-button>
+          <paper-radio-button name="wakanapo">wakanapo</paper-radio-button>
+          <paper-radio-button name="random">sample-random</paper-radio-button>
+          <paper-radio-button name="greedy">sample-greedy</paper-radio-button>
+          <paper-radio-button name="sa">sample-sa</paper-radio-button>
         </paper-radio-group>
       </div>
       <div>
         <h4>Links</h4>
-        <div><a href="https://github.com/hayatoito/google-step-tsp/blob/gh-pages/README.md">README</a></div>
-        <div><a href="https://docs.google.com/spreadsheets/d/1BkPU8cEkwvlZatVsxw62GKYxhWREcZywruL4AfasxQg/edit?usp=sharing">Scoreboard</a></div>
+        <div><a href="https://github.com/mercari-build/week4-tsp/blob/gh-pages/README.md">README</a></div>
+        <div><a href="https://docs.google.com/spreadsheets/d/1t4ScULZ7aZpDJL8i9AVFQfqL7sErjT5i3cmC1G5ecR8/edit?usp=sharing">Scoreboard</a></div>
       </div>
     </div>
     <travelling-salesman-problem id="tsp" pathlength="{{result}}"></travelling-salesman-problem>
