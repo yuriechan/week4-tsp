@@ -25,7 +25,7 @@ inputとoutputの形式については *3. Data Format Specification* を見て�
 
 * 巡回セールスマン問題をとくアルゴリズムを考えて実装してください。
 * `solution_yours_{0-6}.csv` をあなたのアルゴリズムでといた結果で上書きしてください。
-* あなたの解法の*path length*をに書いてください[scoreboard]
+* あなたの解法の*path length*を[scoreboard]に書いてください
 
 [scoreboard]: https://docs.google.com/spreadsheets/d/1t4ScULZ7aZpDJL8i9AVFQfqL7sErjT5i3cmC1G5ecR8/edit?usp=sharing
 ### An optional task (Speed challenge)
