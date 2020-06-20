@@ -42,6 +42,25 @@ def nearest_neighbor(dist_matrix, start_city=0):
         current_city = next_city
     return tour
 
+
+def calculate_tour_length(tour_arr, dist_matrix):
+    # number of tours to calculate its length
+    N = len(tour_arr)
+    tours_length = list()
+
+    for i in range(N):
+        total_tour_length = 0
+        for j in range(len(tour_arr[i]) - 1):
+            source = tour_arr[i][j]
+            destination = tour_arr[i][j + 1]
+            print(f"source:{source}")
+            print(f"destination:{destination}")
+            print(f"dist_matrix[source][destination]: {dist_matrix[source][destination]}")
+            total_tour_length += dist_matrix[source][destination]
+        tours_length.append(total_tour_length)
+    
+    return tours_length
+
 def solve(cities):
     N = len(cities)
     dist_matrix = create_adjacent_matrix(cities)
@@ -50,8 +69,13 @@ def solve(cities):
     for i in range(N):
         tours.append(nearest_neighbor(dist_matrix, i))
 
-    print(tours)
-    return None
+    tour_length_arr = calculate_tour_length(tours, dist_matrix)
+    tour_index = tour_length_arr.index(min(tour_length_arr))
+    #print(tour_length_arr)
+    #print(min(tour_length_arr))
+    #print(tour_length_arr.index(min(tour_length_arr)))
+    shortest_tour = tours[tour_index]
+    return shortest_tour
 
 
 if __name__ == '__main__':
