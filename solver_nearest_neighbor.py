@@ -3,15 +3,8 @@
 import sys
 import math
 
-from common import print_solution, read_input
+from common import print_solution, read_input, distance
 
-
-def distance(city1, city2):
-    return math.sqrt((city1[0] - city2[0]) ** 2 + (city1[1] - city2[1]) ** 2)
-
-def format_print_matrix(matrix):
-    print('\n'.join(['           '.join(['{:4}'.format(item) for item in row]) 
-      for row in matrix]))
 
 def create_adjacent_matrix(cities):
     N = len(cities)
@@ -21,6 +14,7 @@ def create_adjacent_matrix(cities):
             dist[i][j] = dist[j][i] = distance(cities[i], cities[j])
     
     return dist
+
 
 def nearest_neighbor(dist_matrix, start_city):
     # number of vertex in the graph (number of city)
@@ -57,6 +51,7 @@ def calculate_tour_length(tour_arr, dist_matrix):
         tours_length.append(total_tour_length)
     
     return tours_length
+
 
 def solve(cities):
     N = len(cities)
