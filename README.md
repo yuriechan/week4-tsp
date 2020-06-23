@@ -1,3 +1,38 @@
+
+# Travelling Salesman Problem Challenges
+The travelling Salesman Problem asks the following question:<br>
+`Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?` 
+
+## My attemps 
+* Tour construction procedures [V = vertex] 
+  * Nearst-Neighbor Algorithm (passed test cases)
+    * Each vertex in the graph looking for its 1st nearest neighbor to complete a tour, and looking for the minimal tour length out of all the possible tours, I calculate the time complexity to be O(V^2) 
+  * Floyd Warshal Algorithm (did not pass test cases. still in progress.)
+    * This algorithm looks for the all-pairs shortest path by checking every possible intermediate vertex. Creating the shortest path from a vertex to every other vertex results in O(V^2), and adding another iteration to check any possible intermediate vertex results in O(V^3).
+
+* Tour improvement procedures
+  * 2-opt Algorithm (passed test cases)
+    * [At each iteration the algorithm can apply at most O(n2) inversions but the number of overall iterations is weakly bounded by  O(n!)](http://pedrohfsd.com/2017/08/09/2opt-part1.html)
+
+## Result 
+| Algorithm | Tour length (N = 512) | Tour length (N = 2048) | Time Complexity | Space Complexity
+| ----------:|-------------:|-------------:| -----:|-----:|
+| Nearst-Neighbor | 24319.93 | 48127.07 | O(V^2) | ? |
+| Nearst-Neighbor + 2-opt | 20678.43 | 41508.95 | O(V^2 + V!) | ? |
+| Floyd warshal Algorithm | -- | -- | O(V^3) | O(V^3) |
+
+## Challenges / Learning Experience
+- Translating my ideas into the algorithm was quite difficult, especially with the undirected + weighted + graph. 
+- Reading and understanding the existing algorithm was fun to explore a well-structured solution for TSP.
+- Overall, I got more familiar with graph theory and its traversal methods. 
+
+## References 
+- https://en.wikipedia.org/wiki/2-opt
+- http://codecrafthouse.jp/p/2016/08/traveling-salesman-problem/
+- https://www.techiedelight.com/pairs-shortest-paths-floyd-warshall-algorithm/
+
+----
+
 Build@Mercari 2020 Week4 - Travelling Salesman PRoblem Challenges.
 
 This is forked from [https://github.com/hayatoito/google-step-tsp-2016](https://github.com/hayatoito/google-step-tsp-2016).
