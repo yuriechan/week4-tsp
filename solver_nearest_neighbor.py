@@ -22,7 +22,7 @@ def create_adjacent_matrix(cities):
     
     return dist
 
-def nearest_neighbor(dist_matrix, start_city=0):
+def nearest_neighbor(dist_matrix, start_city):
     # number of vertex in the graph (number of city)
     N = len(dist_matrix)
 
@@ -53,9 +53,6 @@ def calculate_tour_length(tour_arr, dist_matrix):
         for j in range(len(tour_arr[i]) - 1):
             source = tour_arr[i][j]
             destination = tour_arr[i][j + 1]
-            print(f"source:{source}")
-            print(f"destination:{destination}")
-            print(f"dist_matrix[source][destination]: {dist_matrix[source][destination]}")
             total_tour_length += dist_matrix[source][destination]
         tours_length.append(total_tour_length)
     
@@ -65,15 +62,13 @@ def solve(cities):
     N = len(cities)
     dist_matrix = create_adjacent_matrix(cities)
     tours = []
-    
+    # Apply NN algo on every city, treating as a starting point
     for i in range(N):
         tours.append(nearest_neighbor(dist_matrix, i))
 
+    # For all the tours, select the min distance
     tour_length_arr = calculate_tour_length(tours, dist_matrix)
     tour_index = tour_length_arr.index(min(tour_length_arr))
-    #print(tour_length_arr)
-    #print(min(tour_length_arr))
-    #print(tour_length_arr.index(min(tour_length_arr)))
     shortest_tour = tours[tour_index]
     return shortest_tour
 
