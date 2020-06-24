@@ -3,6 +3,7 @@
 import sys 
 import math 
 import random
+import timeit
 
 from common import print_solution, read_input, distance, create_adjacent_matrix, calculate_tour_length
 import solver_nearest_neighbor
@@ -101,5 +102,8 @@ def solve(cities):
     
 if __name__ == '__main__':
     assert len(sys.argv) > 1
+    start = timeit.default_timer()
     solution = solve(read_input(sys.argv[1]))
     print_solution(solution)
+    stop = timeit.default_timer()
+    print('Time: ', stop - start)
