@@ -5,18 +5,22 @@ The travelling Salesman Problem asks the following question:<br>
 
 ## My attemps 
 * Tour construction procedures [V = vertex] 
-  * Nearst-Neighbor Algorithm (passed test cases)
+  * Breadth-First Seach on undirected, weighted graph (passed test cases) `/solver_bfs.py`
+    * Traverse a graph by visiting a vertex by its x-coordinate in ascending order. As the undirected graph has no definition of 'level' or 'depth', I decided to define them by x-coordinates. The traversal goes deeper in-depth, as x-coordinates increases. 
+    * The time complexity is calculated to be, O(V * V log V), where it takes O(V log V) to sort the vertex in x-coordinate ascending order and O(V) to enumerate vertex to produce a list of index numbers.  
+  * Nearst-Neighbor Algorithm (passed test cases) `/solver_nearest_neighbor.py`
     * Each vertex in the graph looking for its 1st nearest neighbor to complete a tour, and looking for the minimal tour length out of all the possible tours, I calculate the time complexity to be O(V^2) 
-  * Floyd Warshal Algorithm (did not pass test cases. still in progress.)
+  * Floyd Warshal Algorithm (did not pass test cases. still in progress.) `/solver_floyd_warshall.py`
     * This algorithm looks for the all-pairs shortest path by checking every possible intermediate vertex. Creating the shortest path from a vertex to every other vertex results in O(V^2), and adding another iteration to check any possible intermediate vertex results in O(V^3).
 
 * Tour improvement procedures
-  * 2-opt Algorithm (passed test cases)
+  * 2-opt Algorithm (passed test cases. the concept and its implementation is referenced from [here](http://codecrafthouse.jp/p/2016/08/traveling-salesman-problem/).) `solver_2opt_second.py`
     * [At each iteration the algorithm can apply at most O(n2) inversions but the number of overall iterations is weakly bounded by  O(n!)](http://pedrohfsd.com/2017/08/09/2opt-part1.html)
 
 ## Result 
 | Algorithm | Tour length (N = 512) | Tour length (N = 2048) | Time Complexity | Space Complexity
 | ----------:|-------------:|-------------:| -----:|-----:|
+| Breadth-First Seach Traversal | 147331.05 | 613879.19 | O(V * V log V) | ? |
 | Nearst-Neighbor | 24319.93 | 48127.07 | O(V^2) | ? |
 | Nearst-Neighbor + 2-opt | 20678.43 | 41508.95 | O(V^2 + V!) | ? |
 | Floyd warshal Algorithm | -- | -- | O(V^3) | O(V^3) |
